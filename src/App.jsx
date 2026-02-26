@@ -3,6 +3,8 @@ import { translations } from './i18n/translations'
 import Navbar from './components/Navbar'
 import StaggeredMenu from './components/StaggeredMenu'
 import Hero from './components/Hero'
+import WeatherPopup from './components/WeatherPopup'
+import './components/WeatherPopup.css'
 import Maison from './components/Maison'
 import Region from './components/Region'
 import Activities from './components/Activities'
@@ -15,6 +17,7 @@ import Footer from './components/Footer'
 
 export default function App() {
   const [lang, setLang] = useState('fr')
+  const [weatherOpen, setWeatherOpen] = useState(false)
   const t = translations[lang]
 
   const menuItems = [
@@ -48,6 +51,15 @@ export default function App() {
           setLang={setLang}
         />
       </div>
+      <button
+        type="button"
+        className="weather-trigger"
+        onClick={() => setWeatherOpen(true)}
+        aria-label={t.weather?.button ?? 'Météo'}
+      >
+        <span className="weather-trigger-icon" aria-hidden>☀️</span>
+        <span className="weather-trigger-label">{t.weather?.button ?? 'Météo 7 jours'}</span>
+      </button>
       <Hero t={t} />
       <Maison t={t} />
       <Region t={t} />
@@ -58,6 +70,7 @@ export default function App() {
       <Ferry t={t} />
       <BookingCta t={t} />
       <Footer t={t} lang={lang} setLang={setLang} />
+      <WeatherPopup t={t} lang={lang} isOpen={weatherOpen} onClose={() => setWeatherOpen(false)} />
     </div>
   )
 }

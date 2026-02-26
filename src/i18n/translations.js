@@ -18,6 +18,14 @@ export const translations = {
       cta: 'Découvrir la maison',
       ctaSecondary: 'Réserver',
     },
+    weather: {
+      title: 'Météo',
+      location: 'Fuseta — Ria Formosa',
+      button: 'Prévisions 7 jours',
+      loading: 'Chargement...',
+      error: 'Impossible de charger la météo',
+      close: 'Fermer',
+    },
     maison: {
       sectionLabel: 'LA MAISON',
       headline: 'Un havre de paix au bord de la Ria Formosa',
@@ -194,6 +202,14 @@ export const translations = {
       cta: 'Discover the house',
       ctaSecondary: 'Book',
     },
+    weather: {
+      title: 'Weather',
+      location: 'Fuseta — Ria Formosa',
+      button: '7-day forecast',
+      loading: 'Loading...',
+      error: 'Unable to load weather',
+      close: 'Close',
+    },
     maison: {
       sectionLabel: 'THE HOUSE',
       headline: 'A peaceful retreat on the shores of the Ria Formosa',
@@ -369,6 +385,14 @@ export const translations = {
       stats: ['3 Quartos', '3 Casas de banho', '7 Pessoas', 'Piscina'],
       cta: 'Descobrir a casa',
       ctaSecondary: 'Reservar',
+    },
+    weather: {
+      title: 'Meteorologia',
+      location: 'Fuseta — Ria Formosa',
+      button: 'Previsão 7 dias',
+      loading: 'A carregar...',
+      error: 'Impossível carregar a meteorologia',
+      close: 'Fechar',
     },
     maison: {
       sectionLabel: 'A CASA',
