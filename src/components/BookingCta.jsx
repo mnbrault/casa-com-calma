@@ -4,7 +4,7 @@ export default function BookingCta({ t }) {
       {/* Background image */}
       <div style={{
         position: 'absolute', inset: 0,
-        backgroundImage: "url('/footer.jpg')",
+        backgroundImage: `url('${import.meta.env.BASE_URL}footer.jpg')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center 40%',
       }} />

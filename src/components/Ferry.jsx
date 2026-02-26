@@ -58,7 +58,7 @@ export default function Ferry({ t }) {
               {item.image && (
                 <div style={{ height: 'clamp(180px, 25vw, 220px)', overflow: 'hidden' }}>
                   <img
-                    src={item.image}
+                    src={item.image ? `${import.meta.env.BASE_URL}${item.image.replace(/^\//, '')}` : ''}
                     alt={item.name}
                     loading="lazy"
                     style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}

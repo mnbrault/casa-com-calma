@@ -82,8 +82,8 @@ export default function Gastronomy({ t }) {
               <div style={{ height: 'clamp(200px, 28vw, 260px)', overflow: 'hidden' }}>
                 <img
                   src={
-                    i === 0 ? '/Photo C3/Olhao-fish-market-hall.jpg'
-                    : '/Photo C3/the-great-saturday-market-in-olhao-02.jpg'
+                    i === 0 ? `${import.meta.env.BASE_URL}Photo C3/Olhao-fish-market-hall.jpg`
+                    : `${import.meta.env.BASE_URL}Photo C3/the-great-saturday-market-in-olhao-02.jpg`
                   }
                   alt={pillar.title}
                   style={{

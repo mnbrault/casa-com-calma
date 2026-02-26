@@ -62,9 +62,9 @@ export default function Nature({ t }) {
               <div style={{ height: 220, overflow: 'hidden' }}>
                 <img
                   src={
-                    i === 0 ? '/Photo C3/bird.webp'
-                    : i === 1 ? '/Photo C3/oyster.jpg'
-                    : '/Photo C3/bird2.webp'
+                    i === 0 ? `${import.meta.env.BASE_URL}Photo C3/bird.webp`
+                    : i === 1 ? `${import.meta.env.BASE_URL}Photo C3/oyster.jpg`
+                    : `${import.meta.env.BASE_URL}Photo C3/bird2.webp`
                   }
                   alt={pillar.title}
                   style={{

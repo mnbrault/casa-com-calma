@@ -14,7 +14,7 @@ export default function Hero({ t }) {
       {/* Background image */}
       <div style={{
         position: 'absolute', inset: 0,
-        backgroundImage: "url('/IMG_2659.jpeg')",
+        backgroundImage: `url('${import.meta.env.BASE_URL}IMG_2659.jpeg')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }} />

@@ -62,7 +62,7 @@ function TownCard({ town }) {
       {town.image && (
         <div style={{ height: 'clamp(180px, 25vw, 220px)', overflow: 'hidden' }}>
           <img
-            src={town.image}
+            src={town.image ? `${import.meta.env.BASE_URL}${town.image.replace(/^\//, '')}` : ''}
             alt={town.name}
             loading="lazy"
             style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}

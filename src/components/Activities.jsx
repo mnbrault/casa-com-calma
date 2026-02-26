@@ -42,7 +42,7 @@ export default function Activities({ t }) {
               {/* Image */}
               <div style={{ height: 'clamp(200px, 30vw, 260px)', overflow: 'hidden' }}>
                 <img
-                  src={item.image}
+                  src={item.image ? `${import.meta.env.BASE_URL}${item.image.replace(/^\//, '')}` : ''}
                   alt={item.title}
                   style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s', display: 'block' }}
                   onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.04)'}

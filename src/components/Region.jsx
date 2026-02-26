@@ -41,7 +41,7 @@ export default function Region({ t }) {
           {/* Image */}
           <div className="region-image-wrap" style={{ overflow: 'hidden', borderRadius: 'var(--radius-lg)' }}>
             <img
-              src="/Photo C3/praia-cacela-velha.jpg"
+              src={`${import.meta.env.BASE_URL}Photo C3/praia-cacela-velha.jpg`}
               alt="Ria Formosa"
               style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
             />
