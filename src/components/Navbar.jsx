@@ -20,6 +20,7 @@ export default function Navbar({ t, lang, setLang }) {
 
   return (
     <nav
+      className="navbar-root"
       style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50,
         transition: 'background 0.4s, box-shadow 0.4s',
@@ -32,9 +33,10 @@ export default function Navbar({ t, lang, setLang }) {
         {/* Logo */}
         <a
           href="#"
+          className="navbar-logo"
           style={{
             fontFamily: 'var(--font-display)',
-            fontSize: 22,
+            fontSize: 'clamp(16px, 4vw, 22px)',
             fontStyle: 'italic',
             fontWeight: 600,
             textDecoration: 'none',
@@ -46,7 +48,7 @@ export default function Navbar({ t, lang, setLang }) {
         </a>
 
         {/* Desktop nav */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 40 }} className="hidden md:flex">
+        <div className="navbar-desktop">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -110,8 +112,8 @@ export default function Navbar({ t, lang, setLang }) {
 
         {/* Mobile toggle */}
         <button
-          style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'flex', flexDirection: 'column', gap: 5, padding: 4 }}
-          className="md:hidden"
+          style={{ background: 'none', border: 'none', cursor: 'pointer', flexDirection: 'column', gap: 5, padding: 4 }}
+          className="navbar-mobile-toggle"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Menu"
         >

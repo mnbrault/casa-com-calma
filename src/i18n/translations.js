@@ -1,6 +1,8 @@
 export const translations = {
   fr: {
     nav: {
+      menu: 'Menu',
+      close: 'Fermer',
       villa: 'La Maison',
       region: 'La Région',
       activities: 'Activités',
@@ -175,6 +177,8 @@ export const translations = {
 
   en: {
     nav: {
+      menu: 'Menu',
+      close: 'Close',
       villa: 'The House',
       region: 'The Region',
       activities: 'Activities',
@@ -349,6 +353,8 @@ export const translations = {
 
   pt: {
     nav: {
+      menu: 'Menu',
+      close: 'Fechar',
       villa: 'A Casa',
       region: 'A Região',
       activities: 'Actividades',

@@ -183,21 +183,75 @@ h1, h2, h3, h4 {
   }
 }
 
-/* Navbar height on mobile */
+/* Navbar: éviter débordement */
+nav {
+  overflow-x: hidden;
+}
 .navbar-inner {
   height: 64px;
+  min-width: 0;
+  flex-wrap: nowrap;
+  gap: 16px;
 }
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .navbar-inner {
     height: 72px;
   }
 }
 
-/* Mobile menu padding */
-@media (max-width: 767px) {
-  .mobile-menu {
-    padding: 20px 16px !important;
+/* Desktop nav: visible à partir de 1024px */
+.navbar-desktop {
+  display: none;
+  align-items: center;
+  gap: clamp(16px, 2.5vw, 40px);
+  flex-shrink: 1;
+  min-width: 0;
+}
+@media (min-width: 1024px) {
+  .navbar-desktop {
+    display: flex;
   }
+}
+
+/* Mobile burger: visible jusqu'à 1023px */
+.navbar-mobile-toggle {
+  display: flex;
+  flex-shrink: 0;
+}
+@media (min-width: 1024px) {
+  .navbar-mobile-toggle {
+    display: none;
+  }
+}
+
+/* Navbar: cachée sur mobile (StaggeredMenu à la place) */
+@media (max-width: 1023px) {
+  .navbar-root {
+    display: none !important;
+  }
+}
+
+/* StaggeredMenu: visible uniquement sur mobile */
+.staggered-menu-mobile-only {
+  display: none;
+}
+@media (max-width: 1023px) {
+  .staggered-menu-mobile-only {
+    display: block;
+  }
+}
+
+/* Logo: ne pas rétrécir */
+.navbar-logo {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* Mobile menu padding */
+.mobile-menu {
+  padding: 20px 16px;
+  max-width: 100vw;
+  box-sizing: border-box;
 }
 
 /* Maison / two-column layouts */
