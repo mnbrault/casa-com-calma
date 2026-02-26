@@ -1,5 +1,27 @@
 const BASE = import.meta.env.BASE_URL
 const jardinPhotoTexte = `${BASE}Jardin/Piscine.png`
+
+// Toutes les photos maison (Masonry — sans titres par espace)
+// height : hauteur relative pour l’effet masonry (variations visuelles)
+const MAISON_PHOTOS = [
+  { rel: 'ALFARROBA/QUARTO_SALA/WhatsApp Image 2025-02-22 at 20.42.24.jpeg', height: 380 },
+  { rel: 'ALFARROBA/QUARTO_SALA/WhatsApp Image 2025-02-22 at 20.42.25.jpeg', height: 320 },
+  { rel: 'ALFARROBA/QUARTO_SALA/WhatsApp Image 2025-02-22 at 21.09.25 (8).jpeg', height: 420 },
+  { rel: 'ALFARROBA/WC/WhatsApp Image 2025-02-22 at 20.42.27.jpeg', height: 360 },
+  { rel: 'CCCALMA/COZINHA/WhatsApp Image 2025-02-22 at 20.42.29 (3).jpeg', height: 340 },
+  { rel: 'CCCALMA/COZINHA/WhatsApp Image 2025-02-22 at 21.12.03 (3).jpeg', height: 400 },
+  { rel: 'CCCALMA/QUARTO/WhatsApp Image 2025-02-22 at 21.09.23.jpeg', height: 300 },
+  { rel: 'CCCALMA/WCS/WC_SOCIAL.jpeg', height: 360 },
+  { rel: 'TANGERINA/QUARTO/WhatsApp Image 2025-02-22 at 21.12.04.jpeg', height: 380 },
+  { rel: 'TANGERINA/QUARTO/WhatsApp Image 2025-02-22 at 21.12.06 (1).jpeg', height: 320 },
+  { rel: 'TANGERINA/WC/WhatsApp Image 2025-02-22 at 21.12.05 (1).jpeg', height: 400 },
+  { rel: 'EXTERIOR/WhatsApp Image 2025-02-22 at 21.09.24 (9).jpeg', height: 440 },
+  { rel: 'EXTERIOR/WhatsApp Image 2025-02-22 at 21.15.37 (7).jpeg', height: 350 },
+  { rel: 'EXTERIOR/WhatsApp Image 2025-02-22 at 21.12.02 (2).jpeg', height: 380 },
+  { rel: 'EXTERIOR/WhatsApp Image 2025-02-22 at 20.42.28 (10).jpeg', height: 340 },
+]
+import Masonry from './Masonry'
+
 const MONDRIAN_PHOTOS = [
   { src: `${BASE}Jardin/maison%20globale.png`, area: '1 / 1 / 3 / 3' },
   { src: `${BASE}Jardin/IMG_0041.jpg`, area: '1 / 3 / 2 / 4' },
@@ -119,7 +141,7 @@ export default function Maison({ t }) {
         </div>
       </div>
 
-      {/* ─── Galerie photos ─── */}
+      {/* ─── Galerie photos Masonry (sans titres) ─── */}
       <div className="section-container maison-gallery-margin">
         <p style={{
           fontFamily: 'var(--font-body)',
@@ -132,33 +154,19 @@ export default function Maison({ t }) {
         }}>
           {m.galleryLabel}
         </p>
-        <div className="gallery-placeholder-grid">
-          {[...Array(6)].map((_, i) => (
-            <div
-              key={i}
-              className="gallery-placeholder-cell"
-              style={{
-                backgroundColor: 'rgba(164,74,63,0.06)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                border: '1px dashed rgba(164,74,63,0.18)',
-                borderRadius: 'var(--radius-md)',
-              }}
-            >
-              <span style={{
-                fontFamily: 'var(--font-body)',
-                fontSize: 10,
-                fontWeight: 400,
-                letterSpacing: '0.2em',
-                textTransform: 'uppercase',
-                color: 'rgba(122,96,64,0.4)',
-              }}>
-                {m.galleryPlaceholder}
-              </span>
-            </div>
-          ))}
-        </div>
+        <Masonry
+          items={MAISON_PHOTOS.map((p, i) => ({
+            id: `maison-${i}`,
+            img: `${BASE}${p.rel.split('/').map(encodeURIComponent).join('/')}`,
+            height: p.height,
+          }))}
+          stagger={0.04}
+          scaleOnHover
+          hoverScale={0.98}
+          blurToFocus
+          colorShiftOnHover={false}
+          clickable={false}
+        />
       </div>
 
       {/* ─── Jardin, piscine & verger ─── */}

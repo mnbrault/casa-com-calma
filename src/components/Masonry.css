@@ -1,0 +1,34 @@
+.masonry-list {
+  position: relative;
+  width: 100%;
+  min-height: 400px;
+}
+
+.masonry-item-wrapper {
+  position: absolute;
+  will-change: transform, width, height, opacity;
+  padding: 6px;
+  top: 0;
+  left: 0;
+}
+
+.masonry-item-wrapper[role="button"] {
+  cursor: pointer;
+}
+
+.masonry-item-wrapper > .masonry-item-img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-md, 10px);
+  box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.masonry-item-wrapper > .masonry-item-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  vertical-align: middle;
+}

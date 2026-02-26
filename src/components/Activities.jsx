@@ -70,31 +70,6 @@ export default function Activities({ t }) {
           ))}
         </div>
 
-        {/* Artisanat row */}
-        <div style={{
-          display: 'flex', alignItems: 'center', gap: 24,
-          paddingTop: 48,
-          borderTop: '1px solid #c8d888',
-        }}>
-          
-          <div>
-            <p style={{
-              fontFamily: 'var(--font-display)',
-              color: '#a44a3f',
-              marginBottom: 6,
-            }}>
-              {t.activities.crafts}
-            </p>
-            <p style={{
-              fontFamily: 'var(--font-body)',
-              fontSize: 14, fontWeight: 300,
-              color: '#7a6040',
-            }}>
-              {t.activities.craftsDesc}
-            </p>
-          </div>
-        </div>
-
       </div>
     </section>
   )
