@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-export default function Navbar({ t }) {
+export default function Navbar({ t, lang, setLang }) {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -67,6 +67,27 @@ export default function Navbar({ t }) {
             </a>
           ))}
 
+          <div style={{ display: 'flex', gap: 12 }}>
+            {[['fr', 'FR'], ['en', 'EN'], ['pt', 'PT']].map(([code, label]) => (
+              <span
+                key={code}
+                onClick={() => setLang(code)}
+                style={{
+                  fontFamily: 'var(--font-body)',
+                  fontSize: 11, fontWeight: 500,
+                  color: lang === code
+                    ? (scrolled ? '#a44a3f' : 'rgba(246,244,210,0.95)')
+                    : (scrolled ? 'rgba(164,74,63,0.4)' : 'rgba(246,244,210,0.45)'),
+                  letterSpacing: '0.1em',
+                  cursor: 'pointer',
+                  transition: 'color 0.2s',
+                }}
+              >
+                {label}
+              </span>
+            ))}
+          </div>
+
           <a
             href="#book"
             style={{
@@ -113,6 +134,23 @@ export default function Navbar({ t }) {
               {link.label}
             </a>
           ))}
+          <div style={{ display: 'flex', gap: 16, marginTop: 20, paddingTop: 16, borderTop: '1px solid #c8d888' }}>
+            {[['fr', 'FR'], ['en', 'EN'], ['pt', 'PT']].map(([code, label]) => (
+              <span
+                key={code}
+                onClick={() => { setLang(code); setMenuOpen(false) }}
+                style={{
+                  fontFamily: 'var(--font-body)',
+                  fontSize: 11, fontWeight: 500,
+                  color: lang === code ? '#a44a3f' : 'rgba(164,74,63,0.4)',
+                  letterSpacing: '0.1em',
+                  cursor: 'pointer',
+                }}
+              >
+                {label}
+              </span>
+            ))}
+          </div>
           <a
             href="#book"
             onClick={() => setMenuOpen(false)}

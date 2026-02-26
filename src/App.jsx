@@ -18,7 +18,7 @@ export default function App() {
 
   return (
     <div style={{ minHeight: '100vh', backgroundColor: '#f6f4d2' }}>
-      <Navbar t={t} />
+      <Navbar t={t} lang={lang} setLang={setLang} />
       <Hero t={t} />
       <Maison t={t} />
       <Region t={t} />
