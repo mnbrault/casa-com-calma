@@ -1,0 +1,521 @@
+@font-face {
+  font-family: 'Absans';
+  src: url('/fonts/Absans-Regular.woff2') format('woff2'),
+       url('/fonts/Absans-Regular.woff') format('woff'),
+       url('/fonts/Absans-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Absans', sans-serif;
+  --font-body: 'Absans', sans-serif;
+
+  /* Palette principale */
+  --vanilla-custard:  #d4e09b;
+  --light-yellow:     #f6f4d2;
+  --tea-green:        #cbdfbd;
+  --tangerine:        #f19c79;
+  --reddish-brown:    #a44a3f;
+
+  /* Backgrounds */
+  --color-bg-page:    #f6f4d2;   /* light-yellow */
+  --color-bg-dark:    #a44a3f;   /* reddish-brown */
+  --color-bg-warm:    #d4e09b;   /* vanilla-custard */
+  --color-bg-card:    #cbdfbd;   /* tea-green */
+
+  /* Text */
+  --color-text-primary:   #5a2d28;
+  --color-text-secondary: #7a6040;
+  --color-text-light:     #f6f4d2;
+  --color-text-muted:     #a08060;
+
+  /* Accent */
+  --color-accent:         #f19c79;   /* tangerine */
+  --color-accent-light:   #f6c4a8;
+
+  /* Divider */
+  --color-divider:        #c8d888;
+
+  /* Coins arrondis */
+  --radius-sm:  6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+}
+
+:root {
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-page);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+/* ===== Responsive utilities (mobile < 768px, tablet 768–1024px, desktop > 1024px) ===== */
+.section-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+@media (max-width: 1023px) {
+  .section-container {
+    padding: 0 24px;
+  }
+}
+@media (max-width: 767px) {
+  .section-container {
+    padding: 0 16px;
+  }
+}
+
+.section-padding {
+  padding: 120px 0;
+}
+@media (max-width: 1023px) {
+  .section-padding {
+    padding: 80px 0;
+  }
+}
+@media (max-width: 767px) {
+  .section-padding {
+    padding: 56px 0;
+  }
+}
+
+/* Grids: responsive columns */
+.grid-cols-1-2-3 {
+  display: grid;
+  gap: 28px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .grid-cols-1-2-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .grid-cols-1-2-3 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+}
+
+.grid-cols-1-2 {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .grid-cols-1-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.grid-cols-1-3 {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .grid-cols-1-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .grid-cols-1-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Flex direction: column on mobile */
+.flex-col-stack {
+  flex-direction: column;
+}
+@media (min-width: 1024px) {
+  .flex-col-stack {
+    flex-direction: row;
+  }
+}
+
+/* Hero min-height */
+.hero-section {
+  min-height: 600px;
+}
+@media (min-width: 768px) {
+  .hero-section {
+    min-height: 720px;
+  }
+}
+@media (min-width: 1024px) {
+  .hero-section {
+    min-height: 820px;
+  }
+}
+
+/* Navbar height on mobile */
+.navbar-inner {
+  height: 64px;
+}
+@media (min-width: 768px) {
+  .navbar-inner {
+    height: 72px;
+  }
+}
+
+/* Mobile menu padding */
+@media (max-width: 767px) {
+  .mobile-menu {
+    padding: 20px 16px !important;
+  }
+}
+
+/* Maison / two-column layouts */
+.maison-intro-image {
+  order: -1;
+  height: min(400px, 50vh);
+}
+@media (min-width: 1024px) {
+  .maison-intro-image {
+    order: 0;
+    height: 560px;
+  }
+}
+
+.maison-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: center;
+}
+@media (min-width: 1024px) {
+  .maison-intro-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+}
+
+.maison-garden-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: flex-start;
+}
+@media (min-width: 1024px) {
+  .maison-garden-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+}
+
+.garden-right-col {
+  padding-top: 0;
+}
+@media (min-width: 1024px) {
+  .garden-right-col {
+    padding-top: 120px;
+  }
+}
+
+.garden-photo-wrap {
+  margin-top: 0;
+}
+@media (min-width: 1024px) {
+  .garden-photo-wrap {
+    margin-top: -6cm;
+  }
+}
+
+.maison-garden-section {
+  margin-top: 56px;
+  padding: 56px 0;
+}
+@media (min-width: 768px) {
+  .maison-garden-section {
+    margin-top: 80px;
+    padding: 80px 0;
+  }
+}
+@media (min-width: 1024px) {
+  .maison-garden-section {
+    padding: 100px 0;
+  }
+}
+
+/* Mondrian gallery: grille simple mobile/tablet, layout Mondrian sur desktop */
+.mondrian-gallery {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  gap: 8px;
+  aspect-ratio: auto;
+  min-height: 400px;
+}
+.mondrian-gallery > div {
+  aspect-ratio: 4/3;
+}
+@media (max-width: 1023px) {
+  .mondrian-gallery > div {
+    grid-area: auto !important;
+  }
+}
+@media (min-width: 768px) {
+  .mondrian-gallery {
+    grid-template-columns: repeat(4, 1fr);
+    min-height: 350px;
+  }
+}
+@media (min-width: 1024px) {
+  .mondrian-gallery {
+    margin-top: 64px;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    aspect-ratio: 5/3;
+    gap: 4px;
+    min-height: 0;
+  }
+  .mondrian-gallery > div {
+    aspect-ratio: auto;
+  }
+}
+
+/* Section margins */
+.maison-section-pad {
+  padding: 56px 0 0;
+}
+@media (min-width: 768px) {
+  .maison-section-pad {
+    padding: 80px 0 0;
+  }
+}
+@media (min-width: 1024px) {
+  .maison-section-pad {
+    padding: 120px 0 0;
+  }
+}
+
+.maison-gallery-margin {
+  margin-top: 60px;
+}
+@media (min-width: 768px) {
+  .maison-gallery-margin {
+    margin-top: 80px;
+  }
+}
+@media (min-width: 1024px) {
+  .maison-gallery-margin {
+    margin-top: 100px;
+  }
+}
+
+/* Gallery placeholder grid */
+.gallery-placeholder-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 4px;
+}
+@media (min-width: 480px) {
+  .gallery-placeholder-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .gallery-placeholder-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.gallery-placeholder-cell {
+  height: 200px;
+}
+@media (min-width: 768px) {
+  .gallery-placeholder-cell {
+    height: 250px;
+  }
+}
+@media (min-width: 1024px) {
+  .gallery-placeholder-cell {
+    height: 280px;
+  }
+}
+
+/* Region / Gastronomy / Ferry header grids */
+.header-grid-2col {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: flex-end;
+}
+@media (min-width: 768px) {
+  .header-grid-2col {
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+}
+
+/* Gastronomy pillars & photos - 2 col */
+.pillars-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2px;
+}
+@media (min-width: 768px) {
+  .pillars-grid-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.pillar-card {
+  padding: 28px 20px;
+}
+@media (min-width: 768px) {
+  .pillar-card {
+    padding: 44px 48px;
+  }
+}
+
+/* Ferry destinations */
+.destinations-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2px;
+}
+@media (min-width: 768px) {
+  .destinations-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Markets grid 3col */
+.markets-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+@media (min-width: 1024px) {
+  .markets-grid {
+    gap: 48px;
+  }
+}
+@media (min-width: 768px) {
+  .markets-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .markets-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Region image + text */
+.region-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: center;
+}
+@media (min-width: 1024px) {
+  .region-split {
+    grid-template-columns: 3fr 2fr;
+    gap: 80px;
+  }
+}
+
+.region-image-wrap {
+  height: 280px;
+  order: -1;
+}
+@media (min-width: 1024px) {
+  .region-image-wrap {
+    height: 460px;
+    order: 0;
+  }
+}
+
+/* Nature CTA strip */
+.nature-cta-strip {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+@media (min-width: 768px) {
+  .nature-cta-strip {
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+  }
+}
+
+/* Footer */
+.footer-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 48px 16px 32px;
+}
+@media (min-width: 768px) {
+  .footer-inner {
+    padding: 64px 24px 40px;
+  }
+}
+@media (min-width: 1024px) {
+  .footer-inner {
+    padding: 64px 48px 40px;
+  }
+}
+
+.footer-top-row {
+  flex-direction: column;
+  gap: 40px;
+  align-items: flex-start;
+}
+@media (min-width: 768px) {
+  .footer-top-row {
+    flex-direction: row;
+    gap: 60px;
+    align-items: stretch;
+  }
+}
+
+.footer-bottom-row {
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+@media (min-width: 768px) {
+  .footer-bottom-row {
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+  }
+}
