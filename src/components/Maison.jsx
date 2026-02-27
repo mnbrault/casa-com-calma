@@ -170,7 +170,7 @@ export default function Maison({ t }) {
       </div>
 
       {/* ─── Jardin, piscine & verger ─── */}
-      <div className="maison-garden-section" style={{ backgroundColor: '#cbdfbd', borderRadius: 'var(--radius-xl)' }}>
+      <div className="maison-garden-section" style={{ backgroundColor: '#cbdfbd', borderRadius: 'var(--radius-xl) var(--radius-xl) 0 0' }}>
         <div className="section-container">
 
           <p style={{

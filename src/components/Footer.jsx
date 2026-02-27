@@ -1,6 +1,6 @@
 export default function Footer({ t, lang, setLang }) {
   return (
-    <footer style={{ backgroundColor: '#a44a3f', borderTopLeftRadius: 'var(--radius-xl)', borderTopRightRadius: 'var(--radius-xl)' }}>
+    <footer style={{ backgroundColor: '#a44a3f' }}>
       {/* Main */}
       <div className="footer-inner">
         {/* Top row: brand + 2 nav columns */}
